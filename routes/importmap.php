@@ -13,3 +13,4 @@ Importmap::pin("#lib/defaults/env/FormData.js", to: "https://ga.jspm.io/npm:axio
 Importmap::pin("buffer", to: "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.27/nodelibs/browser/buffer.js");
 Importmap::pin("@hotwired/stimulus", to: "https://ga.jspm.io/npm:@hotwired/stimulus@3.2.1/dist/stimulus.js");
 Importmap::pin("@hotwired/stimulus-loading", to: "vendor/stimulus-laravel/stimulus-loading.js", preload: true);Importmap::pin("el-transition", to: "https://ga.jspm.io/npm:el-transition@0.0.7/index.js");
+Importmap::pin("@github/time-elements", to: "https://ga.jspm.io/npm:@github/time-elements@4.0.0/dist/index.js");

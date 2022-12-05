@@ -12,5 +12,9 @@
                 <span class="absolute inset-0"></span>
             </a>
         </div>
+
+        <div class="mt-6 bg-white shadow-sm rounded-lg divide-y">
+            @each('chirps._chirp', $chirps, 'chirp')
+        </div>
     </div>
 </x-app-layout>
