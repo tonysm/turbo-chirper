@@ -10,6 +10,8 @@
         "laravel/framework": "^9.19",
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.7",
+        "tonysm/importmap-laravel": "^1.2",
+        "tonysm/tailwindcss-laravel": "^0.8.0",
         "tonysm/turbo-laravel": "^1.6"
     },
     "require-dev": {
