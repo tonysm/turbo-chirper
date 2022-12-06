@@ -43,7 +43,17 @@ class ChirpController extends Controller
             'message' => ['required', 'string', 'max:255'],
         ]);
 
-        $request->user()->chirps()->create($validated);
+        $chirp = $request->user()->chirps()->create($validated);
+
+        if ($request->wantsTurboStream()) {
+            return turbo_stream([
+                turbo_stream($chirp, 'prepend'),
+                turbo_stream()->update('create_chirp', view('chirps._form')),
+                turbo_stream()->append('notifications', view('layouts.notification', [
+                    'message' => __('Chirp created.'),
+                ])),
+            ]);
+        }
 
         return redirect()
             ->route('chirps.index')
@@ -93,6 +103,15 @@ class ChirpController extends Controller
 
         $chirp->update($validated);
 
+        if ($request->wantsTurboStream()) {
+            return turbo_stream([
+                turbo_stream($chirp),
+                turbo_stream()->append('notifications', view('layouts.notification', [
+                    'message' => __('Chirp updated.'),
+                ])),
+            ]);
+        }
+
         return redirect()
             ->route('chirps.index')
             ->with('status', __('Chirp updated.'));
@@ -104,11 +123,20 @@ class ChirpController extends Controller
      * @param  \App\Models\Chirp  $chirp
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Chirp $chirp)
+    public function destroy(Request $request, Chirp $chirp)
     {
         $this->authorize('delete', $chirp);
 
         $chirp->delete();
+
+        if ($request->wantsTurboStream()) {
+            return turbo_stream([
+                turbo_stream($chirp),
+                turbo_stream()->append('notifications', view('layouts.notification', [
+                    'message' => __('Chirp deleted.'),
+                ])),
+            ]);
+        }
 
         return redirect()
             ->route('chirps.index')
