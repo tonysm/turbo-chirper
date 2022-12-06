@@ -65,7 +65,7 @@ class ChirpPolicy
      */
     public function delete(User $user, Chirp $chirp)
     {
-        //
+        return $user->is($chirp->user);
     }
 
     /**
