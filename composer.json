@@ -10,6 +10,8 @@
         "laravel/framework": "^9.19",
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.7",
+        "predis/predis": "^2.0",
+        "pusher/pusher-php-server": "^7.2",
         "tonysm/importmap-laravel": "^1.2",
         "tonysm/stimulus-laravel": "^0.0.1",
         "tonysm/tailwindcss-laravel": "^0.8.0",
